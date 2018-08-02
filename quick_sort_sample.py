@@ -28,22 +28,29 @@ def quickSort(alist, start, end):
         im=Image.new('RGB',(g,g))
         px=im.load()
     for i in range(len(f)):
-        if(f[i] == b[i]):
+        if(f[i] == alist[i]):
             px[i,l]=(76,175,80)
         else:
             px[i,l]=(244,67,54)
     
     if start < end:
         
-        pivot = partition(b, start, end)
+        pivot = partition(alist, start, end)
         px[start,l]=(103,58,183)
         px[pivot,l]=(103,58,183)
         px[end,l]=(103,58,183)
         l=l+1
-        quickSort(b, start, pivot-1)
-        quickSort(b, pivot+1, end)
+        print(alist)
+        quickSort(alist, start, pivot-1)
+        quickSort(alist, pivot+1, end)
         
     im.save("1.png")
-    return b
+    return alist
 l=0
 im,px=None,None
+
+import random
+c=[i for i in range(100000)]
+d=random.sample(c,100)
+print(d)
+print(quickSort(d,0,99))
