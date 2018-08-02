@@ -8,14 +8,12 @@ def partition(alist, start, end):
             left += 1
         while alist[right] >= pivot and right >= left:
             right -= 1
-
-        if right < left:
+    if right < left:
             done = True
         else:
             tmp = alist[left]
             alist[left] = alist[right]
             alist[right] = tmp
-
     tmp = alist[start]
     alist[start] = alist[right]
     alist[right] = tmp
@@ -23,8 +21,6 @@ def partition(alist, start, end):
 def quickSort(alist, start, end):
     if start < end:
         pivot = partition(alist, start, end)
-        print(start,pivot-1)
         quickSort(alist, start, pivot-1)
-        print(pivot+1,end)
         quickSort(alist, pivot+1, end)
     return alist
