@@ -7,9 +7,9 @@ def insertionSort(alist):
     
     for i in range(a-1):
         for j in range(i+1,a-1):
-            px[i,j]=(76,175,80)
+            px[j,i]=(76,175,80)
             if b[i] < b[j] :
-                px[i,j]=(244,67,54)
+                px[j,i]=(244,67,54)
                 b[i],b[j]=b[j],b[i]
     im.save("1.png")
     return b
